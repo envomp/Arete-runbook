@@ -22,7 +22,7 @@ services:
 
   back:
     container_name: arete
-    image: ${DOCKER_USER}/arete:latest
+    image: automatedtestingservice/arete:latest
     restart: unless-stopped
     privileged: true
     working_dir: ${ARETE_HOME}
