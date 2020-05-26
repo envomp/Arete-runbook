@@ -2,38 +2,69 @@ version: '3.4'
 
 services:
 
-  db:
-    container_name: postgres
+  arete_ui_back_db:
+    container_name: postgres_arete_ui
     image: postgres:11.5
     restart: unless-stopped
     environment:
       POSTGRES_USER: arete
       POSTGRES_DB: arete
-      POSTGRES_PASSWORD: arete
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD:-v1jXKUpcHAm0dc3C2GNlFkjibEwzdkTbG0Vnld5RZ16Nriz86hQ0cQ2dC09lpVjg}
     ports:
-      - "5432:5432"
+      - "5433:5432"
+
 
   adminer:
     container_name: adminer
     image: adminer
     restart: unless-stopped
     ports:
-      - "8090:8080"
+      - "8190:8080"
 
-  back:
+
+  arete_ui_back:
+    container_name: arete_ui_back
+    image: automatedtestingservice/arete_ui_back:latest
+    restart: unless-stopped
+    network_mode: "host"
+    env_file:
+      - ..env #Change to .env to run locally
+    environment:
+      IS_TEST: ${IS_TEST:-true}
+      SHARED_SECRET: ${SHARED_SECRET:-0fpvg4Bv1CfIjn4DyHhzd70ftjwOcTZ0SqpE9wprzLjMbbA8H5pvVirtJvE4rBvVj0z8UW0n}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD:-v1jXKUpcHAm0dc3C2GNlFkjibEwzdkTbG0Vnld5RZ16Nriz86hQ0cQ2dC09lpVjg}
+    depends_on:
+      - arete_ui_back_db
+    ports:
+      - "8001:8001"
+
+
+  arete_ui:
+    container_name: arete_ui
+    image: automatedtestingservice/arete_ui:latest
+    restart: unless-stopped
+    environment:
+      BACKEND: "https://localhost:8001/services/arete/api/admin/"
+    ports:
+      - "1080:8080"
+
+
+
+  tester:
     container_name: arete
     image: automatedtestingservice/arete:latest
     restart: unless-stopped
     privileged: true
     working_dir: ${ARETE_HOME}
     depends_on:
-      - db
+      - arete_ui_back_db
     ports:
       - "8098:8098"
     env_file:
-      - .env
+      - ..env #Change to .env to run locally
     environment:
       ARETE_HOME: ${ARETE_HOME}
+      SHARED_SECRET: ${SHARED_SECRET:-0fpvg4Bv1CfIjn4DyHhzd70ftjwOcTZ0SqpE9wprzLjMbbA8H5pvVirtJvE4rBvVj0z8UW0n}
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ${ARETE_HOME}/input_and_output:${ARETE_HOME}/input_and_output
