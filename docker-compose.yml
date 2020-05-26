@@ -12,6 +12,7 @@ services:
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD:-v1jXKUpcHAm0dc3C2GNlFkjibEwzdkTbG0Vnld5RZ16Nriz86hQ0cQ2dC09lpVjg}
     ports:
       - "5433:5432"
+    network_mode: "host"
 
 
   adminer:
@@ -20,16 +21,18 @@ services:
     restart: unless-stopped
     ports:
       - "8190:8080"
+    network_mode: "host"
 
 
   arete_ui_back:
     container_name: arete_ui_back
     image: automatedtestingservice/arete_ui_back:latest
     restart: unless-stopped
-    network_mode: "host"
     env_file:
       - ..env #Change to .env to run locally
     environment:
+      TESTER_URL: tester
+      DATABASE_URL: jdbc:postgresql://localhost:5433/arete
       IS_TEST: ${IS_TEST:-true}
       SHARED_SECRET: ${SHARED_SECRET:-0fpvg4Bv1CfIjn4DyHhzd70ftjwOcTZ0SqpE9wprzLjMbbA8H5pvVirtJvE4rBvVj0z8UW0n}
       DATABASE_PASSWORD: ${DATABASE_PASSWORD:-v1jXKUpcHAm0dc3C2GNlFkjibEwzdkTbG0Vnld5RZ16Nriz86hQ0cQ2dC09lpVjg}
@@ -37,6 +40,7 @@ services:
       - arete_ui_back_db
     ports:
       - "8001:8001"
+    network_mode: "host"
 
 
   arete_ui:
@@ -44,10 +48,10 @@ services:
     image: automatedtestingservice/arete_ui:latest
     restart: unless-stopped
     environment:
-      BACKEND: "https://localhost:8001/services/arete/api/admin/"
+      BACKEND: "http://localhost:8001/services/arete/api/admin/"
     ports:
       - "1080:8080"
-
+    network_mode: "host"
 
 
   tester:
@@ -63,6 +67,7 @@ services:
     env_file:
       - ..env #Change to .env to run locally
     environment:
+      BACKEND_URL: http://localhost:8001/services/arete/api/admin/job
       ARETE_HOME: ${ARETE_HOME}
       SHARED_SECRET: ${SHARED_SECRET:-0fpvg4Bv1CfIjn4DyHhzd70ftjwOcTZ0SqpE9wprzLjMbbA8H5pvVirtJvE4rBvVj0z8UW0n}
     volumes:
@@ -71,3 +76,4 @@ services:
       - ${ARETE_HOME}/students:${ARETE_HOME}/students
       - ${ARETE_HOME}/tests:${ARETE_HOME}/tests
       - ${ARETE_HOME}/ssh:/root/.ssh
+    network_mode: "host"
