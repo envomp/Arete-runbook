@@ -44,7 +44,7 @@ services:
     image: automatedtestingservice/arete_ui:latest
     restart: unless-stopped
     environment:
-      BACKEND: http://10.166.0.2:8098/services/arete/api/admin/
+      BACKEND: http://10.166.0.2:8001/services/arete/api/admin/
     ports:
       - "1080:8080"
 
