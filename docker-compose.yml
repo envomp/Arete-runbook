@@ -27,7 +27,7 @@ services:
     image: automatedtestingservice/arete_ui_back:latest
     restart: unless-stopped
     environment:
-      TESTER_URL: https://35.217.3.154:8098
+      TESTER_URL: http://10.166.0.2:8098
       DATABASE_URL: jdbc:postgresql://arete_ui_back_db/arete  # You can use MySQL and other relational DB'ses as well
       ADMIN_PASS: ${ADMIN_PASS:-admin}  # false means that one hardcoded pass will be used
       SHARED_SECRET: ${SHARED_SECRET:-0fpvg4Bv1CfIjn4DyHhzd70ftjwOcTZ0SqpE9wprzLjMbbA8H5pvVirtJvE4rBvVj0z8UW0n}  # Extra layer of security for data integrity
@@ -43,7 +43,7 @@ services:
     image: automatedtestingservice/arete_ui:latest
     restart: unless-stopped
     environment:
-      BACKEND: https://35.217.3.154:8098/services/arete/api/admin/
+      BACKEND: http://10.166.0.2:8098/services/arete/api/admin/
     ports:
       - "1080:8080"
 
@@ -61,7 +61,7 @@ services:
     env_file:
       - .env
     environment:
-      BACKEND_URL: https://35.217.3.154:8098/services/arete/api/admin/job  # post url where to send results to
+      BACKEND_URL: http://10.166.0.2:8001/services/arete/api/admin/job  # post url where to send results to
       ARETE_HOME: ${ARETE_HOME}  # location where git repos will be cloned
       SHARED_SECRET: ${SHARED_SECRET:-0fpvg4Bv1CfIjn4DyHhzd70ftjwOcTZ0SqpE9wprzLjMbbA8H5pvVirtJvE4rBvVj0z8UW0n}
     volumes:
