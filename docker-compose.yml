@@ -32,9 +32,9 @@ services:
       - ..env #Change to .env to run locally
     environment:
       TESTER_URL: tester
-      DATABASE_URL: jdbc:postgresql://localhost:5433/arete
-      IS_TEST: ${IS_TEST:-true}
-      SHARED_SECRET: ${SHARED_SECRET:-0fpvg4Bv1CfIjn4DyHhzd70ftjwOcTZ0SqpE9wprzLjMbbA8H5pvVirtJvE4rBvVj0z8UW0n}
+      DATABASE_URL: jdbc:postgresql://localhost:5433/arete  # You can use MySQL and other relational DB'ses as well
+      ADMIN_PASS: ${ADMIN_PASS:-admin}  # false means that one hardcoded pass will be used
+      SHARED_SECRET: ${SHARED_SECRET:-0fpvg4Bv1CfIjn4DyHhzd70ftjwOcTZ0SqpE9wprzLjMbbA8H5pvVirtJvE4rBvVj0z8UW0n}  # Extra layer of security for data integrity
       DATABASE_PASSWORD: ${DATABASE_PASSWORD:-v1jXKUpcHAm0dc3C2GNlFkjibEwzdkTbG0Vnld5RZ16Nriz86hQ0cQ2dC09lpVjg}
     depends_on:
       - arete_ui_back_db
@@ -48,7 +48,7 @@ services:
     image: automatedtestingservice/arete_ui:latest
     restart: unless-stopped
     environment:
-      BACKEND: "http://localhost:8001/services/arete/api/admin/"
+      BACKEND: http://localhost:8001/services/arete/api/admin/
     ports:
       - "1080:8080"
     network_mode: "host"
@@ -67,13 +67,13 @@ services:
     env_file:
       - ..env #Change to .env to run locally
     environment:
-      BACKEND_URL: http://localhost:8001/services/arete/api/admin/job
-      ARETE_HOME: ${ARETE_HOME}
+      BACKEND_URL: http://localhost:8001/services/arete/api/admin/job  # post url where to send results to
+      ARETE_HOME: ${ARETE_HOME}  # location where git repos will be cloned
       SHARED_SECRET: ${SHARED_SECRET:-0fpvg4Bv1CfIjn4DyHhzd70ftjwOcTZ0SqpE9wprzLjMbbA8H5pvVirtJvE4rBvVj0z8UW0n}
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ${ARETE_HOME}/input_and_output:${ARETE_HOME}/input_and_output
       - ${ARETE_HOME}/students:${ARETE_HOME}/students
       - ${ARETE_HOME}/tests:${ARETE_HOME}/tests
-      - ${ARETE_HOME}/ssh:/root/.ssh
+      - ${ARETE_HOME}/ssh:/root/.ssh  # ssh to clone repositories
     network_mode: "host"
