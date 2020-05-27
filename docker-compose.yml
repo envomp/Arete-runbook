@@ -26,6 +26,7 @@ services:
     container_name: arete_ui_back
     image: automatedtestingservice/arete_ui_back:latest
     restart: unless-stopped
+    network_mode: "host" # communication to arete testing service
     environment:
       TESTER_URL: http://10.166.0.2:8098
       DATABASE_URL: jdbc:postgresql://arete_ui_back_db/arete  # You can use MySQL and other relational DB'ses as well
@@ -52,6 +53,7 @@ services:
     container_name: arete
     image: automatedtestingservice/arete:latest
     restart: unless-stopped
+    network_mode: "host" #Communication to arete-back
     privileged: true
     working_dir: ${ARETE_HOME}
     depends_on:
