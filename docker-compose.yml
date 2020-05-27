@@ -12,7 +12,6 @@ services:
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD:-v1jXKUpcHAm0dc3C2GNlFkjibEwzdkTbG0Vnld5RZ16Nriz86hQ0cQ2dC09lpVjg}
     ports:
       - "5433:5432"
-    network_mode: "host"
 
 
   adminer:
@@ -21,18 +20,15 @@ services:
     restart: unless-stopped
     ports:
       - "8190:8080"
-    network_mode: "host"
 
 
   arete_ui_back:
     container_name: arete_ui_back
     image: automatedtestingservice/arete_ui_back:latest
     restart: unless-stopped
-    env_file:
-      - ..env #Change to .env to run locally
     environment:
-      TESTER_URL: http://localhost:8098
-      DATABASE_URL: jdbc:postgresql://localhost:5433/arete  # You can use MySQL and other relational DB'ses as well
+      TESTER_URL: https://35.217.3.154:8098
+      DATABASE_URL: jdbc:postgresql://arete_ui_back_db/arete  # You can use MySQL and other relational DB'ses as well
       ADMIN_PASS: ${ADMIN_PASS:-admin}  # false means that one hardcoded pass will be used
       SHARED_SECRET: ${SHARED_SECRET:-0fpvg4Bv1CfIjn4DyHhzd70ftjwOcTZ0SqpE9wprzLjMbbA8H5pvVirtJvE4rBvVj0z8UW0n}  # Extra layer of security for data integrity
       DATABASE_PASSWORD: ${DATABASE_PASSWORD:-v1jXKUpcHAm0dc3C2GNlFkjibEwzdkTbG0Vnld5RZ16Nriz86hQ0cQ2dC09lpVjg}
@@ -40,7 +36,6 @@ services:
       - arete_ui_back_db
     ports:
       - "8001:8001"
-    network_mode: "host"
 
 
   arete_ui:
@@ -48,10 +43,9 @@ services:
     image: automatedtestingservice/arete_ui:latest
     restart: unless-stopped
     environment:
-      BACKEND: http://localhost:8001/services/arete/api/admin/
+      BACKEND: https://35.217.3.154:8098/services/arete/api/admin/
     ports:
       - "1080:8080"
-    network_mode: "host"
 
 
   tester:
@@ -65,9 +59,9 @@ services:
     ports:
       - "8098:8098"
     env_file:
-      - ..env #Change to .env to run locally
+      - .env
     environment:
-      BACKEND_URL: http://localhost:8001/services/arete/api/admin/job  # post url where to send results to
+      BACKEND_URL: https://35.217.3.154:8098/services/arete/api/admin/job  # post url where to send results to
       ARETE_HOME: ${ARETE_HOME}  # location where git repos will be cloned
       SHARED_SECRET: ${SHARED_SECRET:-0fpvg4Bv1CfIjn4DyHhzd70ftjwOcTZ0SqpE9wprzLjMbbA8H5pvVirtJvE4rBvVj0z8UW0n}
     volumes:
@@ -76,4 +70,3 @@ services:
       - ${ARETE_HOME}/students:${ARETE_HOME}/students
       - ${ARETE_HOME}/tests:${ARETE_HOME}/tests
       - ${ARETE_HOME}/ssh:/root/.ssh  # ssh to clone repositories
-    network_mode: "host"
