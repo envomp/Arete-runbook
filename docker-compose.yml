@@ -63,6 +63,8 @@ services:
     env_file:
       - .env
     environment:
+#      GIT_USERNAME: username # Use this to authenticate with credentials. Otherwise SSH will be used
+#      GIT_PASSWORD: password # Use this to authenticate with credentials. Otherwise SSH will be used
       BACKEND_URL: http://10.166.0.2:8001/services/arete/api/admin/job  # post url where to send results to
       ARETE_HOME: ${ARETE_HOME}  # location where git repos will be cloned
       SHARED_SECRET: ${SHARED_SECRET:-0fpvg4Bv1CfIjn4DyHhzd70ftjwOcTZ0SqpE9wprzLjMbbA8H5pvVirtJvE4rBvVj0z8UW0n}
