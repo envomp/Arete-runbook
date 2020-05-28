@@ -60,6 +60,7 @@ services:
       - arete_ui_back_db
     ports:
       - "8098:8098"
+      - "25:25"
     env_file:
       - .env
     environment:
