@@ -1,0 +1,17 @@
+{
+  "dockerTimeout": 120,
+  "dockerExtra": [
+    "stylecheck"
+  ],
+  "systemExtra": [
+    "anonymous",
+    "noMail",
+    "noFiles",
+    "noTesterFiles",
+    "noStudentFiles",
+    "noStd",
+    "noOverride",
+    "noFeedback",
+    "minimalFeedback"
+  ]
+}
