@@ -1,14 +1,7 @@
-##### Local docker with postgres ####
+##### Arete docs ####
 
-You need latest of: Docker
+Docs on how to ![set up Arete](docs/TESTER.md)
 
-```shell script
-git clone https://github.com/envomp/arete
-docker login -u automatedtestingservice -p $DOCKER_PASSWORD
-docker-compose up -d
-```
+Docs on how to ![manage subtesters](docs/SUB_TESTER_FOR_TEACHER.md)
 
-cleanup
-```shell script
-./docker_cleanup.sh
-```
+Docs on how to ![develop subtesters](docs/SUB_TESTER_FOR_DEVELOPER.md)
