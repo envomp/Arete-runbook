@@ -1,6 +1,8 @@
 # Developing Arete's sub testers
 
-Sub tester will get an input in the following fashion: ![input](../pictures/input.png)
+Sub tester will get an input in the following fashion:
+
+![input](../pictures/input.png)
 
 Where ```input.json``` will have content similar to:
 ```
