@@ -1,6 +1,21 @@
 # Developing Arete's sub testers
 
-It is recommended, that your tester returns the response with [this structure.](../schemas/arete/response/responseSchema.json)
+Sub tester will get an input in the following fashion: ![input](../pictures/input.png)
+
+Where ```input.json``` will have content similar to:
+```
+{
+  "contentRoot": "/student",
+  "testRoot": "/tester",
+  "extra": "stylecheck"
+}
+```
+
+contentRoot - student files
+testRoot - test files
+extra - some extra parameters for tester. Comma separated.
+
+It is recommended, that your tester returns the response with [this structure](../schemas/arete/response/responseSchema.json) and place the result into ```output.json```
 
 Where the type must be: ```arete```
 
