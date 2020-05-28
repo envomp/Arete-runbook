@@ -53,11 +53,9 @@ Example:
    
    * ```noOverride``` - Don't let arete.json files override existing parameters
    
-   * ```noFeedback``` - ![noFeedback](pictures/none.png)
+   * ```noFeedback``` - ![noFeedback](../pictures/none.png)
    
-   * ```minimalFeedback``` - ![minimalFeedback](pictures/minimal.png)
+   * ```minimalFeedback``` - ![minimalFeedback](../pictures/minimal.png)
    
-   otherwise student sees the following: ![full](pictures/full.png)
-   
-## Specifics
+   otherwise student sees the following: ![full](../pictures/full.png)
 
