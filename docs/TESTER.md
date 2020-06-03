@@ -16,6 +16,7 @@ To deploy Arete in a single machine, run the following.
 ```shell script
 git clone https://github.com/envomp/arete
 cd arete
+<change docker-compose.yml file so the url's are correct>
 <edit .env file so that ARETE_HOME is same as the folder you are in.>
 docker-compose up -d
 <Copy the contents of .ssh to the created ssh folder>
