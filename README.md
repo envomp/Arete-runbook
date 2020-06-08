@@ -8,4 +8,4 @@ Docs on how to [develop subtesters](docs/SUB_TESTER_FOR_DEVELOPER.md)
 
 Frontend is available at: https://cs.ttu.ee/services/arete/
 
-Backend API documentation is available at: https://cs.ttu.ee/services/arete/api/v2/swagger-ui.html
+Backend API documentation is available at: https://cs.ttu.ee/services/arete/api/v2/swagger-ui.html and at: https://arete-back.herokuapp.com/services/arete/api/v2/swagger-ui.html
