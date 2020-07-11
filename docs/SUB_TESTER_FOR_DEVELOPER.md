@@ -4,6 +4,8 @@ Sub tester will get an input in the following fashion:
 
 ![input](../pictures/input.png)
 
+If you want to send files to students' mail then write the files to `/host/` folder but make sure that the name of the file won't be either input.json nor output.json!
+
 Where ```input.json``` will have content similar to:
 ```
 {
