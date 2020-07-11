@@ -16,7 +16,9 @@ Where ```input.json``` will have content similar to:
 ```
 
 contentRoot - student files
+
 testRoot - test files
+
 extra - some extra parameters for tester. Comma separated.
 
 It is recommended, that your tester returns the response with [this structure](../schemas/arete/response/responseSchema.json) and place the result into ```output.json```
