@@ -25,7 +25,14 @@ Example:
     "noOverride",
     "noFeedback",
     "minimalFeedback"
-  ]
+  ],
+  "groupingFolders": [
+  "KT",
+  "TK",
+  "EXAM"
+  ],
+  "solutionsRepository": "https://gitlab.cs.ttu.ee/iti0102-2020/ex",
+  "programmingLanguage": "python"
 }
 ````
 
@@ -59,3 +66,8 @@ Example:
    
    otherwise student sees the following: ![full](../pictures/full.png)
 
+```groupingFolders``` - folders which are not slugs themselves but contain slugs. Note: students still need to have the same file tree for testing to be successful
+
+```solutionsRepository``` - repository which contains solutions against what tests are ran after being updated.
+
+```programmingLanguage``` - programming language - used to determine tester
