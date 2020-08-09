@@ -2,6 +2,18 @@
 
 Currently availabe subtesters are visible [here at docker repository](https://hub.docker.com/search?q=automatedtestingservice&type=image)
 
+## Webhooks
+
+Add a following webhook to tests repository to run tests after teacher pushes to validate tests:
+ - URL: https://cs.ttu.ee/services/arete/api/v2/exercise
+ - Secret Token: <permission_group> <permission_group_token>
+ - Make sure arete.json contains `programmingLanguage` and `solutionsRepository`
+
+Add a following webhook to solutions repository to run tests after teacher pushes his/her own solution:
+ - URL: https://cs.ttu.ee/services/arete/api/v2/submission/:webhook/withTests?testRepository=<tests_repository> where <tests_repository> can be git@gitlab.cs.ttu.ee:iti0102-2020/ex.git for example
+ - Secret Token: <permission_group> <permission_group_token>
+
+
 ## Usage
 
 First make sure you have the latest version installed. You can use [arete front](https://gitlab.cs.ttu.ee/testing/arete-ui) to do so.
