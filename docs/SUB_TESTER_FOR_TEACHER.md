@@ -70,7 +70,7 @@ Example:
    
    * ```noStd``` - test container logs are not returned from testing
    
-   * ```noStyle``` - Mail won't containt any style related fields
+   * ```noStyle``` - Mail won't containt any style related fields and all traces of any stylecheck will be removed
    
    * ```noOverride``` - Don't let arete.json files override existing parameters
    
