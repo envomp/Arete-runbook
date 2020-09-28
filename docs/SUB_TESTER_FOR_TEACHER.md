@@ -70,7 +70,9 @@ Example:
    
    * ```noStd``` - test container logs are not returned from testing
    
-   * ```noStyle``` - Mail won't containt any style related fields and all traces of any stylecheck will be removed
+   * ```noStyle``` - Mail won't containt any style related fields and all traces of any stylecheck will be removed from return json
+   
+   * ```allowExternalMail``` - Mail will ve sent to external mails like @gmail.com. Without parameters @taltech.ee and @ttu.ee are only valid options 
    
    * ```noOverride``` - Don't let arete.json files override existing parameters
    
