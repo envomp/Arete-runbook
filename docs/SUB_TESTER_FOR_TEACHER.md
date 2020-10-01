@@ -18,7 +18,9 @@ Add a following webhook to solutions repository to run tests after teacher pushe
 
 First make sure you have the latest version installed. You can use [arete front](https://gitlab.cs.ttu.ee/testing/arete-ui) to do so.
 
-you can place arete.json file in the root of the repository or exercise for customised testing.
+you can place arete.json file in the root of the repository("/") or grouping folder("/EXAM/") or exercise("/EXAM/exam1/") in either tests repository or student repository for customised testing.
+
+Features, that students can use are marked with double asterix**
 
 Example:
 ````json
@@ -28,14 +30,10 @@ Example:
     "stylecheck"
   ],
   "systemExtra": [
-    "anonymous",
     "noMail",
-    "noFiles",
     "noTesterFiles",
     "noStudentFiles",
     "noStd",
-    "noOverride",
-    "noFeedback",
     "minimalFeedback"
   ],
   "groupingFolders": [
@@ -60,7 +58,7 @@ Example:
 
    * ```anonymous``` - nothing is sent to arete backend (Use with caution)
 
-   * ```noMail``` - student doesn't get a mail with testing results
+   * ```noMail``` - student doesn't get a mail with testing results**
    
    * ```noFiles``` - no files are returned from testing
    
