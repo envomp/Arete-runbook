@@ -57,6 +57,8 @@ Example:
 ```systemExtra``` - more testing specifics
 
    * ```anonymous``` - nothing is sent to arete backend (Use with caution)
+   
+   * ```noOverall``` - Overall section in HTML is not shown
 
    * ```noMail``` - student doesn't get a mail with testing results**
    
