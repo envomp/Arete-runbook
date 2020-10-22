@@ -90,4 +90,4 @@ Example:
 
 ```solutionsRepository``` - repository which contains solutions against what tests are ran after being updated.
 
-```programmingLanguage``` - programming language - used to determine tester
+```testingPlatform``` - programming language - used to determine tester
