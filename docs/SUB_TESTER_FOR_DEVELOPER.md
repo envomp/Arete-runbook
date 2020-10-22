@@ -15,11 +15,11 @@ Where ```input.json``` will have content similar to:
 }
 ```
 
-contentRoot - student files
+contentRoot - student files or whatever you want it to be
 
-testRoot - test files
+testRoot - test files or whatever you want it to be
 
-extra - some extra parameters for tester. Comma separated.
+extra - some extra parameters for tester
 
 It is recommended, that your tester returns the response with [this structure](../schemas/arete/response/responseSchema.json) and place the result into ```output.json```
 
