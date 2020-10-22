@@ -26,9 +26,7 @@ Example:
 ````json
 {
   "dockerTimeout": 120,
-  "dockerExtra": [
-    "stylecheck"
-  ],
+  "dockerExtra": "stylecheck",
   "systemExtra": [
     "noMail",
     "noTesterFiles",
@@ -36,13 +34,9 @@ Example:
     "noStd",
     "minimalFeedback"
   ],
-  "groupingFolders": [
-  "KT",
-  "TK",
-  "EXAM"
-  ],
+  "groupingFolders": ["KT", "TK", "EXAM"],
   "solutionsRepository": "https://gitlab.cs.ttu.ee/iti0102-2020/ex",
-  "programmingLanguage": "python"
+  "testingPlatform": "python"
 }
 ````
 
