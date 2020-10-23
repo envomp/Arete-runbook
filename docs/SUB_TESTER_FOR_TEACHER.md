@@ -64,6 +64,12 @@ Example:
    
    * ```noOverall``` - Overall section in HTML is not shown
 
+   * ```skipCopyingTests``` - Skip copying test to tester - also skips
+   
+   * ```skipCopyingStudent``` - Skip copying student files to tester
+
+   * ```skipCopying``` -  ```skipCopyingTests``` and ```skipCopyingStudent``` combined
+
    * ```noMail``` - student doesn't get a mail with testing results**
    
    * ```noFiles``` - no files are returned from testing
