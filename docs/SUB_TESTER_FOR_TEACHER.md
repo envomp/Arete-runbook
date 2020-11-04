@@ -40,21 +40,21 @@ Example:
 }
 ````
 
-```dockerTimeout``` - maximum allowed code execution time
+```dockerTimeout``` - Maximum allowed code execution time
 
-```dockerExtra``` - every subtester has different ones (seek subtester repository for more)
+```dockerExtra``` - Every subtester has different ones (seek subtester repository for more)
 
-   * ```stylecheck``` - check style in Python tester
+   * ```stylecheck``` - Check style in Python tester
 
-   * ```-r TESTNG,COMPILER,CHECKSTYLE,FILEWRITER,REPORT``` - check style in Java tester
+   * ```-r TESTNG,COMPILER,CHECKSTYLE,FILEWRITER,REPORT``` - Check style in Java tester
 
-```systemExtra``` - more testing specifics
+```systemExtra``` - More testing specifics
 
-   * ```anonymous``` - nothing is sent to arete backend (Use with caution)
+   * ```anonymous``` - Nothing is sent to arete backend (Use with caution)
    
-   * ```allowAppending``` - all extra parameters what are collections - instead of overriding, append 
+   * ```allowAppending``` - All extra parameters what are collections - instead of overriding, append 
    
-   * ```giveTestRunnerControl``` - allow tester setting slug and timestamp. Useful when integrating against external API
+   * ```giveTestRunnerControl``` - Allow tester setting slug and timestamp. Useful when integrating against external API
    
    * ```overrideContentRoot``` - Allow student changing content root which is being sent to tester (Use with caution)
       
@@ -72,15 +72,15 @@ Example:
 
    * ```skipCopying``` -  ```skipCopyingTests``` and ```skipCopyingStudent``` combined
 
-   * ```noMail``` - student doesn't get a mail with testing results**
+   * ```noMail``` - Student doesn't get a mail with testing results**
    
-   * ```noFiles``` - no files are returned from testing
+   * ```noFiles``` - No files are returned from testing
    
-   * ```noTesterFiles``` - no test files are returned from testing
+   * ```noTesterFiles``` - No test files are returned from testing
    
-   * ```noStudentFiles``` - no student files are returned from testing
+   * ```noStudentFiles``` - No student files are returned from testing
    
-   * ```noStd``` - test container logs are not returned from testing
+   * ```noStd``` - Test container logs are not returned from testing
    
    * ```noStyle``` - Mail won't containt any style related fields and all traces of any stylecheck will be removed from return json
    
@@ -92,10 +92,10 @@ Example:
    
    * ```minimalFeedback``` - ![minimalFeedback](../pictures/minimal.png)
    
-   otherwise student sees the following: ![full](../pictures/full.png)
+   Otherwise student sees the following: ![full](../pictures/full.png)
 
-```groupingFolders``` - folders which are not slugs themselves but contain slugs. Note: students still need to have the same file tree for testing to be successful
+```groupingFolders``` - Folders which are not slugs themselves but contain slugs. Note: students still need to have the same file tree for testing to be successful
 
-```solutionsRepository``` - repository which contains solutions against what tests are ran after being updated.
+```solutionsRepository``` - Repository which contains solutions against what tests are ran after being updated.
 
-```testingPlatform``` - programming language - used to determine tester
+```testingPlatform``` - Programming language - used to determine tester
