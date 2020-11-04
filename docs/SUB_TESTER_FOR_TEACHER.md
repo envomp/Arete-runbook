@@ -54,6 +54,8 @@ Example:
    
    * ```allowAppending``` - all extra parameters what are collections - instead of overriding, append 
    
+   * ```giveTestRunnerControl``` - allow tester setting slug and timestamp. Useful when integrating against external API
+   
    * ```overrideContentRoot``` - Allow student changing content root which is being sent to tester (Use with caution)
       
    * ```overrideTestRoot``` - Allow student changing test root which is being sent to tester (Use with caution)
