@@ -42,6 +42,10 @@ Example:
 
 ```dockerTimeout``` - Maximum allowed code execution time
 
+```dockerContentRoot``` - Change root where student is
+
+```dockerTestRoot``` - Change where problem is
+
 ```dockerExtra``` - Every subtester has different ones (seek subtester repository for more)
 
    * ```stylecheck``` - Check style in Python tester
